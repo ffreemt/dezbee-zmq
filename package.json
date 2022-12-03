@@ -1,0 +1,23 @@
+{
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "husky": "^8.0.0"
+    }
+    "scripts": {
+        "start": "pyright && pytest && yarn style",
+        "test": "nodemon -w tests -w dezmq -x pytest tests",
+        "pyright": "nodemon -w dezmq -w .venv -e .py -x pyright dezmq tests",
+        "pytest": "nodemon -w tests -w dezmq -e .py -x pytest tests dezmq",
+        "style": "nodemon -w dezmq -w tests -x \"black tests dezmq && python -m flake8\"",
+        "docstyle": "nodemon -w dezmq -w tests -x pydocstyle --convention=google tests dezmq",
+        "pylint": "nodemon -w dezmq -e .py -x pylint dezmq",
+        "test:dezmq": "nodemon -w tests -e .py -x pytest -k dezmq tests",
+        "publish": "poetry build && poetry publish",
+        "black": "black tests dezmq",
+        "flake8": "flake8 tests dezmq",
+        "pflake8": "pflake8 tests dezmq",
+        "pep257": "pep257 tests dezmq",
+        "final": "run-s docstyle black flake8 pytest",
+        "prepare": "husky install"
+    }
+}
