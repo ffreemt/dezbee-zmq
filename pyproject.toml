@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dezmq"
-version = "0.1.0-alpha.0"
+version = "0.1.0a1"
 description = "dezmq"
 authors = ["ffreemt"]
 license = "MIT"
@@ -14,6 +14,9 @@ set-loglevel = "^0.1.2"
 typer = "^0.4.1"
 # icecream = "^2.1.1"
 # install = "^1.3.5"
+pyzmq = {version = "^25.0.0b1", allow-prereleases = true}
+ezbee = "^0.1.2"
+scikit-learn = "^1.1.3"
 
 [tool.poe.executor]
 type = "poetry"

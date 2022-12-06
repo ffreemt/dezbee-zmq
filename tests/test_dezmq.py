@@ -1,7 +1,6 @@
 """Test dezmq."""
 # pylint: disable=broad-except
-from dezmq import __version__
-from dezmq import dezmq
+from dezmq import __version__, dezmq
 
 
 def test_version():
