@@ -1,4 +1,4 @@
-"""Serve aligned results for ezbee via port 5555."""
+"""Serve aligned results for ezbee via zmq:5555."""
 # pylint: disable=invalid-name
 import json
 import os
@@ -38,7 +38,7 @@ app = typer.Typer(
 
 def _version_callback(value: bool) -> None:
     if value:
-        typer.echo(f"{app.info.name} v.{__version__} -- ...")
+        typer.echo(f"{app.info.name} v.{__version__} -- {__doc__}")
         raise typer.Exit()
 
 
@@ -57,10 +57,10 @@ def main(
         None,
         "--port",
         "-p",
-        help="Set port (default 5555).",
+        help="Set port, default port 5555 (when -p is not present).",
     ),
 ):
-    """Serve via zmq via port 5555."""
+    """Serve aligned results for ezbee via zmq at port 5555."""
     if port is None:
         port = port_
 

@@ -1,0 +1,18 @@
+workflow-actions-conditional.txt
+
+---
+C:\syncthing\mat-dir\pypi-projects
+$ rg --max-depth=5 --glob *.yml --hidden RUNNER_OS
+  mlbee\.github\workflows\routine-tests.yml
+  
+        - name: Extra install for linux and non-linux
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            poetry run pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cpu
+          else
+            poetry run pip install torch torchvision
+          fi
+        shell: bash
+
+or dezmq's workflow
+        
